@@ -1,138 +1,128 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CTF Savollar</title>
+  <title>CTF Challenge</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
       margin: 0;
-      padding: 40px;
-      color: #fff;
+      padding: 30px;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
+      color: #00ff00;
+      font-size: 32px;
+      text-shadow: 0 0 5px #00ff00;
     }
 
     .container {
+      max-width: 1000px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(8px);
+      border: 2px solid #00ff00;
       padding: 20px;
-      border-radius: 16px;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
+      border-radius: 8px;
+      background-color: #111;
+      box-shadow: 0 0 10px #00ff00;
     }
 
     .question-title {
-      font-weight: bold;
       font-size: 18px;
       margin-bottom: 10px;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
+      background: #000;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      padding: 8px;
       font-size: 16px;
       margin-bottom: 10px;
+      border-radius: 5px;
     }
 
     button {
-      background: #fff;
-      color: #0072ff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: bold;
+      background-color: transparent;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 8px 12px;
+      font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
+      border-radius: 5px;
     }
 
     button:hover {
-      background: #e6e6e6;
+      background-color: #00ff00;
+      color: #000;
     }
 
     .result {
+      font-weight: bold;
       margin-top: 10px;
-      font-size: 16px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      display: inline-block;
     }
 
     .correct {
-      background-color: #28a745;
-      color: white;
+      color: #00ff00;
     }
 
     .wrong {
-      background-color: #dc3545;
-      color: white;
+      color: red;
     }
   </style>
 </head>
 <body>
 
-  <h1>🛡️ 10 ta CTF Savol</h1>
-  <div class="container">
-    <!-- 10 ta savol -->
-    <!-- Quyidagi qatorni 10 marta takrorlaymiz -->
-    <!-- Siz o'zingizdagi flag qiymatlarni saqlab qolasiz -->
-    <!-- Pastda faqat 3 tasini yozdim, qolgan 7 tasini o‘zingiz qo‘shing -->
+<h1>💀 Hacker CTF 💀</h1>
 
-    <div class="card">
-      <div class="question-title">1. flag1 ni kiriting</div>
-      <input type="text" id="answer1">
-      <button onclick="checkAnswer('answer1', 'flag{one}', 'result1')">Tekshir</button>
-      <div id="result1" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">2. flag2 ni kiriting</div>
-      <input type="text" id="answer2">
-      <button onclick="checkAnswer('answer2', 'flag{two}', 'result2')">Tekshir</button>
-      <div id="result2" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">3. flag3 ni kiriting</div>
-      <input type="text" id="answer3">
-      <button onclick="checkAnswer('answer3', 'flag{three}', 'result3')">Tekshir</button>
-      <div id="result3" class="result"></div>
-    </div>
-
-    <!-- Davomini o'zingiz ko'chirib qo'shishingiz mumkin -->
-  </div>
-
+<div class="container">
+  <!-- 10 ta savol -->
   <script>
-    function checkAnswer(inputId, correctAnswer, resultId) {
-      const userAnswer = document.getElementById(inputId).value.trim();
-      const resultDiv = document.getElementById(resultId);
+    const flags = [
+      'flag{one}', 'flag{two}', 'flag{three}', 'flag{four}', 'flag{five}',
+      'flag{six}', 'flag{seven}', 'flag{eight}', 'flag{nine}', 'flag{ten}'
+    ];
 
-      if (userAnswer === correctAnswer) {
-        resultDiv.textContent = "✅ To‘g‘ri!";
-        resultDiv.className = "result correct";
-      } else {
-        resultDiv.textContent = "❌ Noto‘g‘ri!";
-        resultDiv.className = "result wrong";
-      }
+    for (let i = 0; i < 10; i++) {
+      document.write(
+        <div class="card">
+          <div class="question-title">[+] Savol ${i + 1}: flag${i + 1} ni kiriting</div>
+          <input type="text" id="answer${i}">
+          <button onclick="checkAnswer(${i})">Tekshir</button>
+          <div id="result${i}" class="result"></div>
+        </div>
+      );
     }
   </script>
+</div>
+
+<script>
+  function checkAnswer(index) {
+    const input = document.getElementById('answer' + index);
+    const result = document.getElementById('result' + index);
+    const correct = [
+      'flag{one}', 'flag{two}', 'flag{three}', 'flag{four}', 'flag{five}',
+      'flag{six}', 'flag{seven}', 'flag{eight}', 'flag{nine}', 'flag{ten}'
+    ];
+
+    if (input.value.trim() === correct[index]) {
+      result.textContent = '✅ To‘g‘ri!';
+      result.className = 'result correct';
+    } else {
+      result.textContent = '❌ Noto‘g‘ri.';
+      result.className = 'result wrong';
+    }
+  }
+</script>
 
 </body>
 </html>
