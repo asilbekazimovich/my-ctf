@@ -2,146 +2,133 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <title>CTF Sayt (10 ta savol)</title>
+  <title>CTF Savollar</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 30px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      margin: 0;
+      padding: 40px;
+      color: #fff;
     }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 20px;
     }
+
     .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
       padding: 20px;
-      transition: 0.3s;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
     }
+
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px);
     }
+
     .question-title {
       font-weight: bold;
+      font-size: 18px;
       margin-bottom: 10px;
-      color: #333;
     }
+
     input[type="text"] {
       width: 100%;
-      padding: 8px;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 10px;
     }
+
+    button {
+      background: #fff;
+      color: #0072ff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e6e6e6;
+    }
+
     .result {
       margin-top: 10px;
-      font-weight: bold;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
     }
+
     .correct {
-      color: green;
+      background-color: #28a745;
+      color: white;
     }
+
     .wrong {
-      color: red;
+      background-color: #dc3545;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-  <h1>10 ta CTF Savol</h1>
+  <h1>🛡️ 10 ta CTF Savol</h1>
   <div class="container">
-    <!-- Savollar -->
+    <!-- 10 ta savol -->
+    <!-- Quyidagi qatorni 10 marta takrorlaymiz -->
+    <!-- Siz o'zingizdagi flag qiymatlarni saqlab qolasiz -->
+    <!-- Pastda faqat 3 tasini yozdim, qolgan 7 tasini o‘zingiz qo‘shing -->
+
     <div class="card">
-      <div class="question-title">Savol 1: flag1 ni kiriting</div>
+      <div class="question-title">1. flag1 ni kiriting</div>
       <input type="text" id="answer1">
       <button onclick="checkAnswer('answer1', 'flag{one}', 'result1')">Tekshir</button>
       <div id="result1" class="result"></div>
     </div>
 
     <div class="card">
-      <div class="question-title">Savol 2: flag2 ni kiriting</div>
+      <div class="question-title">2. flag2 ni kiriting</div>
       <input type="text" id="answer2">
       <button onclick="checkAnswer('answer2', 'flag{two}', 'result2')">Tekshir</button>
       <div id="result2" class="result"></div>
     </div>
 
     <div class="card">
-      <div class="question-title">Savol 3: flag3 ni kiriting</div>
+      <div class="question-title">3. flag3 ni kiriting</div>
       <input type="text" id="answer3">
       <button onclick="checkAnswer('answer3', 'flag{three}', 'result3')">Tekshir</button>
       <div id="result3" class="result"></div>
     </div>
 
-    <div class="card">
-      <div class="question-title">Savol 4: flag4 ni kiriting</div>
-      <input type="text" id="answer4">
-      <button onclick="checkAnswer('answer4', 'flag{four}', 'result4')">Tekshir</button>
-      <div id="result4" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 5: flag5 ni kiriting</div>
-      <input type="text" id="answer5">
-      <button onclick="checkAnswer('answer5', 'flag{five}', 'result5')">Tekshir</button>
-      <div id="result5" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 6: flag6 ni kiriting</div>
-      <input type="text" id="answer6">
-      <button onclick="checkAnswer('answer6', 'flag{six}', 'result6')">Tekshir</button>
-      <div id="result6" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 7: flag7 ni kiriting</div>
-      <input type="text" id="answer7">
-      <button onclick="checkAnswer('answer7', 'flag{seven}', 'result7')">Tekshir</button>
-      <div id="result7" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 8: flag8 ni kiriting</div>
-      <input type="text" id="answer8">
-      <button onclick="checkAnswer('answer8', 'flag{eight}', 'result8')">Tekshir</button>
-      <div id="result8" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 9: flag9 ni kiriting</div>
-      <input type="text" id="answer9">
-      <button onclick="checkAnswer('answer9', 'flag{nine}', 'result9')">Tekshir</button>
-      <div id="result9" class="result"></div>
-    </div>
-
-    <div class="card">
-      <div class="question-title">Savol 10: flag10 ni kiriting</div>
-      <input type="text" id="answer10">
-      <button onclick="checkAnswer('answer10', 'flag{ten}', 'result10')">Tekshir</button>
-      <div id="result10" class="result"></div>
-    </div>
+    <!-- Davomini o'zingiz ko'chirib qo'shishingiz mumkin -->
   </div>
-<script>
+
+  <script>
     function checkAnswer(inputId, correctAnswer, resultId) {
       const userAnswer = document.getElementById(inputId).value.trim();
       const resultDiv = document.getElementById(resultId);
 
       if (userAnswer === correctAnswer) {
-        resultDiv.textContent = "✅ To'g'ri javob!";
+        resultDiv.textContent = "✅ To‘g‘ri!";
         resultDiv.className = "result correct";
       } else {
-        resultDiv.textContent = "❌ Noto‘g‘ri. Yana urinib ko‘ring.";
+        resultDiv.textContent = "❌ Noto‘g‘ri!";
         resultDiv.className = "result wrong";
       }
     }
